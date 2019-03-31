@@ -4,7 +4,7 @@
     wrap
   >
     <v-flex
-      v-for="n in 3"
+      v-for="n in (this.$vuetify.breakpoint.smOnly ? 2 : 3)"
       :key="n"
       xs12
       sm6
@@ -172,7 +172,9 @@ export default {
   },
   methods: {
     column(n) {
-      return this.projects.filter((_, i) => i % 3 === n)
+      return this.projects.filter(
+        (_, i) => i % (this.$vuetify.breakpoint.smOnly ? 2 : 3) === n
+      )
     }
   }
 }
