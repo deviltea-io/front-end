@@ -6,8 +6,6 @@
       width="280"
       :permanent="$vuetify.breakpoint.mdAndUp"
     >
-      <logo />
-      <v-divider />
       <v-list>
         <v-list-tile>
           <v-text-field
@@ -70,11 +68,7 @@
 </template>
 
 <script>
-import Logo from '@/components/common/logo'
 export default {
-  components: {
-    Logo
-  },
   data() {
     return {
       dark: true,
