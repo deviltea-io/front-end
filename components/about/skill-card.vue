@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="pa-3">
     <v-card-title primary-title>
       技能
     </v-card-title>
@@ -96,6 +96,7 @@ export default {
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
+  // color: var(--v-primary-darken1);
 }
 
 .skill__text {

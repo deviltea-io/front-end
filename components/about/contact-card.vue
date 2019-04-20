@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="pa-3">
     <v-card-title primary-title>
       聯絡
     </v-card-title>

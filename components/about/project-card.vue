@@ -1,5 +1,5 @@
 <template>
-  <v-card class="py-3">
+  <v-card class="pa-3">
     <v-card-title primary-title>
       <div class="project__title">
         {{ title }}
@@ -10,6 +10,7 @@
         v-for="(tag, i) in tags"
         :key="i"
         color="primary"
+        small
         outline
       >
         {{ tag }}
@@ -61,7 +62,7 @@ export default {
     },
     links: {
       type: Array,
-      default: () => [{ text: 'Github', url: 'https://github.com' }]
+      default: () => [{ text: 'GitHub', url: 'https://github.com' }]
     }
   },
   methods: {
