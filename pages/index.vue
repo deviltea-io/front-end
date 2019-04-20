@@ -6,7 +6,7 @@
         :key="`char${i}`"
         class="title-animation__slide-in-top"
         :style="{
-          'animation-delay': `${Math.random() * 3}s`
+          'animation-delay': `${i * 150}ms`
         }"
       >
         <span
@@ -51,10 +51,6 @@ export default {
         {
           text: '文章',
           page: 'articles'
-        },
-        {
-          text: '標籤',
-          page: 'tags'
         }
       ]
     }
@@ -90,6 +86,7 @@ export default {
   border: 2px solid;
   border-radius: 28px;
   &:hover {
+    transition: 0.15s linear;
     background: rgba(255, 255, 255, 0.1);
   }
 }

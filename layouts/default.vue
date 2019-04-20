@@ -1,35 +1,55 @@
 <template>
-  <v-app :dark="dark">
+  <v-app>
+    <v-snackbar
+      v-model="snackbar.visibility"
+      :top="$vuetify.breakpoint.mdAndUp"
+      :bottom="$vuetify.breakpoint.smAndDown"
+    >
+      {{ snackbar.text }}
+    </v-snackbar>
+    <v-navigation-drawer
+      app
+      dark
+      :permanent="$vuetify.breakpoint.lgAndUp"
+      width="280"
+      right
+    />
     <v-navigation-drawer
       v-model="showDrawer"
       app
+      dark
       width="280"
       :permanent="$vuetify.breakpoint.mdAndUp"
     >
-      <v-list>
-        <v-list-tile>
-          <v-text-field
-            id="id"
-            name="name"
-            color="accent"
-            prepend-inner-icon="search"
-          />
-        </v-list-tile>
-        <v-divider />
-        <v-list-tile
-          v-for="(navButton, index) in navButtons"
-          :key="index"
-          avatar
-          nuxt
-          :to="navButton.to"
-          @click="showDrawer = false"
-        >
-          <v-list-tile-avatar>
-            <v-icon>{{ navButton.icon }}</v-icon>
-          </v-list-tile-avatar>
-          {{ navButton.name }}
-        </v-list-tile>
-      </v-list>
+      <v-layout
+        column
+        fill-height
+      >
+        <v-list>
+          <v-list-tile>
+            <v-text-field
+              id="id"
+              name="name"
+              color="accent"
+              prepend-inner-icon="search"
+            />
+          </v-list-tile>
+          <v-divider />
+          <v-list-tile
+            v-for="(navButton, index) in navButtons"
+            :key="index"
+            avatar
+            nuxt
+            :to="navButton.to"
+            @click="showDrawer = false"
+          >
+            <v-list-tile-avatar>
+              <v-icon>{{ navButton.icon }}</v-icon>
+            </v-list-tile-avatar>
+            {{ navButton.name }}
+          </v-list-tile>
+        </v-list>
+      </v-layout>
     </v-navigation-drawer>
     <no-ssr>
       <v-toolbar
@@ -51,13 +71,15 @@
     >
       <v-container
         fluid
-        class="pa-3"
+        fill-height
+        class="pa-3 content"
       >
         <nuxt />
       </v-container>
     </v-content>
     <v-footer
       app
+      dark
       fixed
     >
       <v-spacer />
@@ -90,53 +112,16 @@ export default {
           icon: 'format_list_bulleted',
           name: '文章',
           to: '/articles'
-        },
-        {
-          icon: 'label',
-          name: '標籤',
-          to: '/tags'
         }
       ]
     }
   },
   computed: {},
-  methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.fadeInDown {
-  animation-name: fadeInDown;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-@keyframes fadeOutUp {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-}
-
-.fadeOutUp {
-  animation-name: fadeOutUp;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+/deep/.content {
+  max-width: 720px;
 }
 </style>
