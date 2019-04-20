@@ -15,8 +15,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "cookie-universal-nuxt": "^2.0.14",
     "cross-env": "^5.2.0",
+    "firebase": "^5.9.4",
+    "highlight.js": "^9.15.6",
     "koa": "^2.6.2",
+    "markdown-it": "^8.4.2",
     "nuxt": "^2.3.4",
     "tiptap": "^1.14.0",
     "tiptap-extensions": "^1.14.0",
