@@ -67,10 +67,11 @@ export default {
         [
           '後端',
           [
-            ['NodeJS', '熟悉'],
+            ['NodeJs', '熟悉'],
             ['Koa2', '熟悉'],
             ['MongoDB', '熟悉'],
-            ['MySQL', '有經驗']
+            ['MySQL', '有經驗'],
+            ['Restful API', '有經驗']
           ]
         ],
         ['行動端', [['Android', '有經驗']]],
@@ -78,10 +79,10 @@ export default {
           'DevOps',
           [
             ['Git', '熟悉'],
-            ['Docker', '熟悉'],
-            ['Docker Compose', '熟悉'],
-            ['CircleCI', '熟悉'],
-            ['GitLabCI', '熟悉']
+            ['Docker', '有經驗'],
+            ['Docker Compose', '有經驗'],
+            ['CircleCI', '有經驗'],
+            ['GitLabCI', '有經驗']
           ]
         ]
       ]
