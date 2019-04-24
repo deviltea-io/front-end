@@ -21,6 +21,7 @@ module.exports = {
           allowFirstLine: false
         }
       }
-    ]
+    ],
+    'vue/no-v-html': false
   }
 }
