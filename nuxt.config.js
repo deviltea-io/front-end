@@ -37,14 +37,15 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  plugins: ['@/plugins/vuetify', '@/plugins/api'],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt'
   ],
   /*
   ** Axios module configuration

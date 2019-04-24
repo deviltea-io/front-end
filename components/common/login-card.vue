@@ -1,0 +1,40 @@
+<template>
+  <v-card
+    color="transparent"
+    flat
+  >
+    <v-card-text class="text-xs-center title pb-0">
+      登入
+    </v-card-text>
+    <v-card-actions>
+      <v-layout
+        row
+        wrap
+        class="text-xs-center"
+      >
+        <v-flex>
+          <v-btn
+            flat
+            icon
+            color="primary"
+            large
+            @click="$emit('login', 'Github')"
+          >
+            <v-icon>mdi-github-circle</v-icon>
+          </v-btn>
+        </v-flex>
+        <v-flex>
+          <v-btn
+            flat
+            icon
+            color="primary"
+            large
+            @click="$emit('login', 'Google')"
+          >
+            <v-icon>mdi-google</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-card-actions>
+  </v-card>
+</template>

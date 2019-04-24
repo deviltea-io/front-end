@@ -26,7 +26,11 @@
         fill-height
       >
         <v-list>
-          <v-list-tile>
+          <template v-if="!$store.state.user">
+            <login-card @login="login" />
+            <v-divider />
+          </template>
+          <!-- <v-list-tile>
             <v-text-field
               id="id"
               name="name"
@@ -34,7 +38,7 @@
               prepend-inner-icon="search"
             />
           </v-list-tile>
-          <v-divider />
+          <v-divider /> -->
           <v-list-tile
             v-for="(navButton, index) in navButtons"
             :key="index"
@@ -49,6 +53,20 @@
             {{ navButton.name }}
           </v-list-tile>
         </v-list>
+        <template v-if="$store.state.user">
+          <v-spacer />
+          <div class="pa-2">
+            <v-btn
+              block
+              color="primary"
+              outline
+              dark
+              @click="logout"
+            >
+              登出
+            </v-btn>
+          </div>
+        </template>
       </v-layout>
     </v-navigation-drawer>
     <no-ssr>
@@ -90,7 +108,15 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import config from '@/assets/firebaseConfig.json'
+import LoginCard from '@/components/common/login-card'
+
 export default {
+  components: {
+    LoginCard
+  },
   data() {
     return {
       dark: true,
@@ -113,10 +139,48 @@ export default {
           name: '文章',
           to: '/articles'
         }
-      ]
+      ],
+      snackbar: {
+        visibility: false,
+        text: ''
+      }
     }
   },
   computed: {},
+  mounted() {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config)
+    }
+  },
+  methods: {
+    async login(providerName) {
+      const provider = new firebase.auth[`${providerName}AuthProvider`]()
+      if (providerName === 'Google') {
+        provider.addScope('https://www.googleapis.com/auth/userinfo.email')
+      } else if (providerName === 'Github') {
+        provider.addScope('user')
+      }
+      await firebase.auth().signInWithPopup(provider)
+      const idToken = await firebase.auth().currentUser.getIdToken(true)
+      await this.$store.dispatch('login', idToken)
+      await this.$store.dispatch('auth')
+      this.displaySnackbar(`Hello ${this.$store.state.user.name} !`)
+    },
+    async logout() {
+      this.displaySnackbar(`Goodbye ${this.$store.state.user.name} !`)
+      await firebase.auth().signOut()
+      await this.$store.dispatch('logout')
+    },
+    displaySnackbar(text) {
+      const vm = this
+      vm.snackbar.visibility = true
+      vm.snackbar.text = text
+      setTimeout(() => {
+        vm.snackbar.visibility = false
+        vm.snackbar.text = ''
+      }, 3000)
+    }
+  }
 }
 </script>
 
