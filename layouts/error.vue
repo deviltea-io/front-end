@@ -42,7 +42,7 @@ export default {
   flex-direction: column;
   align-items: center;
   & > .oops {
-    font-size: 20vmin;
+    font-size: 18vmin;
     font-weight: 500;
     & > .eyebrow {
       position: relative;
@@ -69,7 +69,6 @@ export default {
         font-weight: 400;
       }
       & > .message {
-        max-width: 400px;
         line-height: 1em;
         font-size: 6vmin;
         font-weight: 400;
