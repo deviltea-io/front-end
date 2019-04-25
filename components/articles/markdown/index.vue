@@ -120,7 +120,13 @@ export default {
   box-shadow: none;
 }
 
-/deep/p {
-  margin: 0;
+/deep/p,
+/deep/h1,
+/deep/h2,
+/deep/h3,
+/deep/h4,
+/deep/h5,
+/deep/h6 {
+  margin: 8px 0;
 }
 </style>
