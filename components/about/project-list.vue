@@ -46,6 +46,17 @@ export default {
     return {
       projects: [
         {
+          title: 'DevilTea.io',
+          tags: ['vue', 'vuex', 'vue router', 'nuxt', 'NodeJS', 'Typescript', 'koa2', 'MongoDB', 'Docker'],
+          description: '本站的組織，裡面包含前端及後端的 Repo 。',
+          links: [
+            {
+              text: 'DevilTea.io',
+              url: 'https://github.com/deviltea-io'
+            }
+          ]
+        },
+        {
           title: 'Node TypeScript 腳手架',
           tags: ['NodeJS', 'TypeScript'],
           description: '方便使用 TypeScript 進行 nodeJS 專案開發的腳手架。',
