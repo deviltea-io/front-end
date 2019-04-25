@@ -53,7 +53,7 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL:
-      process.env.NODE_ENV === 'development' ? 'http://localhost:8787/api' : '',
+      process.env.NODE_ENV === 'development' ? 'http://localhost:8787/api' : 'https://deviltea.io/api',
     credentials: true
   },
 
