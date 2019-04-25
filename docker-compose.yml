@@ -1,0 +1,16 @@
+version: '3'
+services:
+  deviltea-io-frontend:
+    container_name: 'deviltea-io-frontend'
+    hostname: 'deviltea-io-frontend'
+    build: .
+    command: sh -c "npm rebuild node-sass && yarn start"
+    volumes:
+      - .:/usr/src/app/
+      - ./node_modules:/usr/src/app/node_modules
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - 3000:3000
+    external_links:
+      - localhost
